@@ -32,13 +32,13 @@ var getData = function() {
     // Execute an AJAX request to get the data in data/response.js
 
     $.ajax({
-        url         : "data/response.json",
-        type        : "get",
-        success     : function(dat) {
+        url       : "data/response.json",
+        type      : "get",
+        success   : function(dat) {
             data = dat;
             customBuild();
         },
-        dataType    : "json"
+        dataType  : "json"
     });
 
     // When your request is successful, call your customBuild function
@@ -48,7 +48,7 @@ var getData = function() {
 // Do something creative with the data here!
 var customBuild = function () {
     data.map(function (d) {
-        var pin = new L.circleMarker([d.latitude, d.longitude], 200, {
+        var pin = L.marker([d.latitude, d.longitude], 200, {
             color: 'blue',
             opacity: '0.5'
         }).addTo(map)
