@@ -1,14 +1,16 @@
 // Function to draw your map
 var map;
+var data;
+var customBuild;
 
 var drawMap = function() {
 
-    // Create map and set viewd
+    // Create map and set view on the University of Washington
 
     L.mapbox.accessToken = 'pk.eyJ1IjoibW9ycGhvdmFyaWFudCIsImEiOiIzNTZhYTIxZjE3YzJiYjQ5Y2Y0Mzc1ZjJlZTliMmY0NyJ9.gg22GoEx5mShVKjZR37RbA';
     var map = L.map('container').setView([47.6624,-122.3189],14);
 
-    // Create an tile layer variable using the appropriate url
+    // Create an tile layer variable using mapbox Light
 
     var layer = L.tileLayer('http://{s}.tiles.mapbox.com/v4/morphovariant.mkh9fi7o/{z}/{x}/{y}.png?access_token=pk.eyJ1IjoibW9ycGhvdmFyaWFudCIsImEiOiIzNTZhYTIxZjE3YzJiYjQ5Y2Y0Mzc1ZjJlZTliMmY0NyJ9.gg22GoEx5mShVKjZR37RbA');
     //var layer = L.tileLayer('http://{s}.tile.osm.org/{z}/{x}/{y}.png');
@@ -24,8 +26,6 @@ var drawMap = function() {
 };
 
 // Function for getting data
-
-var data;
 
 var getData = function() {
 
@@ -47,15 +47,15 @@ var getData = function() {
 };
 
 // Do something creative with the data here!
-var customBuild = function () {
+
+customBuild = function () {
     data.map(function (d) {
-        var pin = new L.marker([d.lat, d.lng], 200, {
+        var pin = new L.circle([d.lat, d.lng], 200, {
             color: 'blue',
             opacity: '0.5'
         });
         pin.addTo(map);
     });
-
 };
 
 
