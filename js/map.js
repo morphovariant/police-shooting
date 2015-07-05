@@ -54,13 +54,13 @@ customBuild = function () {
 
     //color code circleMarkers on 'Hit or Killed'
     data.map(function (d) {
-        if (d['Hit or Killed?'] = 'hit') {
+        if (d['Hit or Killed?'] == 'hit') {
             var hit = new L.circleMarker([d.lat, d.lng], {
                 size: '3px',
                 color: '#6c4838',
                 opacity: '0'
             }).addTo(map)
-        } else if (d['Hit or Killed?'] = 'killed') {
+        } else if (d['Hit or Killed?'] == 'killed') {
             var kill = new L.circleMarker([d.lat, d.lng], {
                 size: '3px',
                 color: '#c04234',
