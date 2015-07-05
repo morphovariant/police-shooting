@@ -56,7 +56,7 @@ customBuild = function () {
             color: 'blue',
             opacity: '0.5'
         });
-        map.addLayer(pin);
+        map.addLayer(pin)
     });
 };
 
