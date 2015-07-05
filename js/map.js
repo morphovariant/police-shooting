@@ -15,7 +15,7 @@ var drawMap = function() {
 
     // Add the layer to your map
 
-    map.addLayers(layer);
+    layer.addTo(map);
 
     // Execute your function to get data
 
@@ -36,7 +36,7 @@ var getData = function() {
         type        : "get",
         success     : function(dat) {
             data = dat;
-            customBuild(map);
+            customBuild();
         },
         dataType    : "json"
     });
