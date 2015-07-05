@@ -9,7 +9,7 @@ var drawMap = function() {
     // Create map and set view on the University of Washington
 
     L.mapbox.accessToken = 'pk.eyJ1IjoibW9ycGhvdmFyaWFudCIsImEiOiIzNTZhYTIxZjE3YzJiYjQ5Y2Y0Mzc1ZjJlZTliMmY0NyJ9.gg22GoEx5mShVKjZR37RbA';
-    var map = L.map('container').setView([47.6624,-122.3189],14);
+    map = L.map('container').setView([47.6624,-122.3189],14);
 
     // Create an tile layer variable using mapbox Light
 
