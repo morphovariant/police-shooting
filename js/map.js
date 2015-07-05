@@ -1,4 +1,6 @@
 // Function to draw your map
+var map;
+
 var drawMap = function() {
 
     // Create map and set viewd
@@ -34,7 +36,7 @@ var getData = function() {
         type        : "get",
         success     : function(dat) {
             data = dat;
-            customBuild();
+            customBuild(map);
         },
         dataType    : "json"
     });
