@@ -60,7 +60,7 @@ customBuild = function () {
                 color: '#6c4838',
                 opacity: '0'
             }).addTo(map)
-        } else if (d['Hit or Killed'] = 'kill') {
+        } else if (d['Hit or Killed'] = 'killed') {
             var kill = new L.circleMarker([d.lat, d.lng], {
                 size: '5px',
                 color: '#c04234',
