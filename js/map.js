@@ -15,6 +15,8 @@ var drawMap = function() {
 
     // Add the layer to your map
 
+    map.addLayer(layer);
+
     // Execute your function to get data
 
     getData()
