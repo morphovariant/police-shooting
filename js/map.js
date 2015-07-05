@@ -1,37 +1,38 @@
-// Function to draw your map
+
+//global variables accessible to all functions
+
 var map;
 var data;
 var getData;
 var customBuild;
 
+// function
+// draws a map using Mapbox Light tiles
+// centers the map on the continental US
+// calls the function to get the data
+
 var drawMap = function() {
 
-    // Create map and set view on the University of Washington
-
     L.mapbox.accessToken = 'pk.eyJ1IjoibW9ycGhvdmFyaWFudCIsImEiOiIzNTZhYTIxZjE3YzJiYjQ5Y2Y0Mzc1ZjJlZTliMmY0NyJ9.gg22GoEx5mShVKjZR37RbA';
-    map = L.map('container').setView([47.6624,-122.3189],14);
+    map = L.map('container').setView([38,-96],4);
 
-    // Create an tile layer variable using mapbox Light
+    // osm base tile layer
+    //var layer = L.tileLayer('http://{s}.tile.osm.org/{z}/{x}/{y}.png')
 
-    var layer = L.tileLayer('http://{s}.tiles.mapbox.com/v4/morphovariant.mkh9fi7o/{z}/{x}/{y}.png?access_token=pk.eyJ1IjoibW9ycGhvdmFyaWFudCIsImEiOiIzNTZhYTIxZjE3YzJiYjQ5Y2Y0Mzc1ZjJlZTliMmY0NyJ9.gg22GoEx5mShVKjZR37RbA');
-    //var layer = L.tileLayer('http://{s}.tile.osm.org/{z}/{x}/{y}.png');
-
-    // Add the layer to your map
-
+    // mapbox Light base tile layer
+    var layer = L.tileLayer('http://{s}.tiles.mapbox.com/v4/morphovariant.mkh9fi7o/{z}/{x}/{y}.png?access_token=pk.eyJ1IjoibW9ycGhvdmFyaWFudCIsImEiOiIzNTZhYTIxZjE3YzJiYjQ5Y2Y0Mzc1ZjJlZTliMmY0NyJ9.gg22GoEx5mShVKjZR37RbA')
     layer.addTo(map);
-
-    // Execute your function to get data
 
     getData()
  
 };
 
-// Function for getting data
-
+// Function
+// gets Deadspin crowd-sourced police shooting data
+// source: http://regressing.deadspin.com/deadspin-police-shooting-database-update-were-still-go-1627414202
+// if successful, calls function to present data on the map
 
 getData = function () {
-
-    // Execute an AJAX request to get the data in data/response.js
 
     $.ajax({
         url: "data/response.json",
@@ -44,11 +45,10 @@ getData = function () {
         console.log(err);
     });
 
-    // When your request is successful, call your customBuild function
-
 };
 
-// Do something creative with the data here!
+// Function
+// creates a circle marker for each data point
 
 customBuild = function () {
     data.map(function (d) {
@@ -57,7 +57,6 @@ customBuild = function () {
             opacity: '0.5'
         });
         pin.addTo(map)
-        //map.addLayer(pin)
     });
 };
 

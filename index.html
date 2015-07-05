@@ -4,6 +4,7 @@
   <head>
     <script src="http://code.jquery.com/jquery-2.1.1.min.js"></script>
     <script type="text/javascript" src="js/map.js"></script>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
     <title>Police Shootings</title>
     <!-- Get the leaflet.js library and stylesheet -->
     <script src="http://cdn.leafletjs.com/leaflet-0.7.3/leaflet.js"></script>
@@ -11,15 +12,41 @@
     <!-- Get the mapbox.js library and stylesheet -->
     <script src='https://api.tiles.mapbox.com/mapbox.js/v2.2.1/mapbox.js'></script>
     <link href='https://api.tiles.mapbox.com/mapbox.js/v2.2.1/mapbox.css' rel='stylesheet' />
+    <link rel="stylesheet" type="text/css" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/css/bootstrap.min.css">
     <link rel="stylesheet" href="css/main.css"/>
   </head>
 
   <body>
-    <div id="container" style="width:800px; height:600px;"></div>
-    <script>
-      
-    	drawMap();
+    <div class="container-fluid">
 
+      <div class="row">
+
+        <div class="col-sm-12 clean">
+          <header>
+            <h1>Map  |  Police Shootings</h1>
+            <p>Data crowd-sourced and provided by <a href="http://regressing.deadspin.com/deadspin-police-shooting-database-update-were-still-go-1627414202" target="_blank">Deadspin</a>.</p>
+          </header>
+        </div>
+
+      </div>
+
+      <div class="row">
+
+        <div id="container" class="col-sm-8" style="height:180px;"></div>
+
+        <div class="col-sm-4">
+          <section>
+            <h2>Number of Shots Fired</h2>
+            <h2>Age of the victim</h2>
+          </section>
+        </div>
+
+      </div>
+
+    </div>
+
+    <script>
+    	drawMap();
     </script>
   </body>
 </html>
