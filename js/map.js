@@ -49,7 +49,7 @@ var getData = function() {
 // Do something creative with the data here!
 var customBuild = function () {
     data.map(function (d) {
-        var pin = L.marker([d.latitude, d.longitude], 200, {
+        var pin = new L.marker([d.lat, d.lng], 200, {
             color: 'blue',
             opacity: '0.5'
         });
