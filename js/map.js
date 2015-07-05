@@ -34,11 +34,12 @@ var getData = function() {
     $.ajax({
         url       : "data/response.json",
         type      : "get",
-        success   : function(dat) {
+        dataType  : "json"
+    }).then(function(dat) {
             data = dat;
             customBuild();
-        },
-        dataType  : "json"
+    }, function(err) {
+        console.log(err);
     });
 
     // When your request is successful, call your customBuild function
@@ -51,7 +52,8 @@ var customBuild = function () {
         var pin = L.marker([d.latitude, d.longitude], 200, {
             color: 'blue',
             opacity: '0.5'
-        }).addTo(map)
+        });
+        pin.addTo(map);
     });
 
 };
