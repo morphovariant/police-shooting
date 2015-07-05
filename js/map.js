@@ -1,6 +1,7 @@
 // Function to draw your map
 var map;
 var data;
+var getData;
 var customBuild;
 
 var drawMap = function() {
@@ -27,18 +28,19 @@ var drawMap = function() {
 
 // Function for getting data
 
-var getData = function() {
+
+getData = function () {
 
     // Execute an AJAX request to get the data in data/response.js
 
     $.ajax({
-        url       : "data/response.json",
-        type      : "get",
-        dataType  : "json"
-    }).then(function(dat) {
-            data = dat;
-            customBuild();
-    }, function(err) {
+        url: "data/response.json",
+        type: "get",
+        dataType: "json"
+    }).then(function (dat) {
+        data = dat;
+        customBuild();
+    }, function (err) {
         console.log(err);
     });
 
