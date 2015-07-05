@@ -29,12 +29,14 @@ var getData = function() {
 
     // Execute an AJAX request to get the data in data/response.js
 
-    data = $.ajax({
+    $.ajax({
         url         : 'data/response.json',
-        type        : 'get',
-        dataType    : 'json'
-    }).done(function() {
-        customBuild()
+        type        : "get",
+        success     : function(dat) {
+            data = dat;
+            customBuild();
+        },
+        dataType    : "json"
     });
 
     // When your request is successful, call your customBuild function
