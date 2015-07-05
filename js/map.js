@@ -51,12 +51,28 @@ getData = function () {
 // creates a circle marker for each data point
 
 customBuild = function () {
+
+    //color code circleMarkers on 'Hit or Killed'
     data.map(function (d) {
-        var pin = new L.circleMarker([d.lat, d.lng], {
-            color: 'blue',
-            opacity: '0.5'
-        });
-        pin.addTo(map)
+        if (d['Hit or Killed'] = 'hit') {
+            var hit = new L.circleMarker([d.lat, d.lng], {
+                size: '5px',
+                color: '#6c4838',
+                opacity: '0'
+            }).addTo(map)
+        } else if (d['Hit or Killed'] = 'kill') {
+            var kill = new L.circleMarker([d.lat, d.lng], {
+                size: '5px',
+                color: '#c04234',
+                opacity: '0'
+            }).addTo(map)
+        } else {
+            var unk = new L.circleMarker([d.lat, d.lng], {
+                size: '5px',
+                color: '#e3e79b',
+                opacity: '0'
+            }).addTo(map)
+        }
     });
 };
 
