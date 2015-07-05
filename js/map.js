@@ -52,11 +52,12 @@ getData = function () {
 
 customBuild = function () {
     data.map(function (d) {
-        var pin = new L.circle([d.lat, d.lng], 200, {
+        var pin = new L.circleMarker([d.lat, d.lng], {
             color: 'blue',
             opacity: '0.5'
         });
-        map.addLayer(pin)
+        pin.addTo(map)
+        //map.addLayer(pin)
     });
 };
 
