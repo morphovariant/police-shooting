@@ -86,15 +86,12 @@ customBuild = function () {
                 color       : '#2c4ca4',
                 opacity     : '0.5'
             }).setRadius(5).bindPopup(
-                "<b>Outcome:</b> Hit" +
-                "<br /><b>Shots Fired:</b> " + d['Shots Fired'] +
-                "<br /><b>Victim's Age:</b> " + d["Victim's Age"] +
-                "<br /><b>Victim's Gender:</b> " + d["Victim's Gender"] +
-                "<br /><b>Summary:</b> " + d['Summary'] +
-                '<br />-<i><a href="' + d['Source Link'] + '" target="_blank">Source</a></i>', {
-                    'keepInView'    : true,
-                    'closeButton'   : true
-                }
+                "<p><b>Outcome:</b> Hit</p>" +
+                "<p><b>Shots Fired:</b> " + d['Shots Fired'] + "</p>" +
+                "<p><b>Victim's Age:</b> " + d["Victim's Age"] + "</p>" +
+                "<p><b>Victim's Gender:</b> " + d["Victim's Gender"] + "</p>" +
+                "<p><b>Summary:</b> " + d['Summary'] + "</p>" +
+                '<p>-<i><a href="' + d['Source Link'] + '" target="_blank">Source</a></i>'
             );
             outcomeHit.addLayer(hit);
         } else if (d['Hit or Killed?'] == 'Killed') {
@@ -103,12 +100,12 @@ customBuild = function () {
                 color       : '#c04234',
                 opacity     : '0.5'
             }).setRadius(5).bindPopup(
-                "<b>Outcome:</b> Killed" +
-                "<br /><b>Shots Fired:</b> " + d['Shots Fired'] +
-                "<br /><b>Victim's Age:</b> " + d["Victim's Age"] +
-                "<br /><b>Victim's Gender:</b> " + d["Victim's Gender"] +
-                "<br /><b>Summary:</b> " + d['Summary'] +
-                '<br />-<i><a href="' + d['Source Link'] + '" target="_blank">Source</a></i>'
+                "<p><b>Outcome:</b> Killed</p>" +
+                "<p><b>Shots Fired:</b> " + d['Shots Fired'] + "</p>" +
+                "<p><b>Victim's Age:</b> " + d["Victim's Age"] + "</p>" +
+                "<p><b>Victim's Gender:</b> " + d["Victim's Gender"] + "</p>" +
+                "<p><b>Summary:</b> " + d['Summary'] + "</p>" +
+                '<p>-<i><a href="' + d['Source Link'] + '" target="_blank">Source</a></i>'
             );
             outcomeKill.addLayer(kill);
         } else {
@@ -117,12 +114,12 @@ customBuild = function () {
                 color         : '#952ca4',
                 opacity     : '0.5'
             }).setRadius(5).bindPopup(
-                "<b>Outcome:</b> Unknown" +
-                "<br /><b>Shots Fired:</b> " + d['Shots Fired'] +
-                "<br /><b>Victim's Age:</b> " + d["Victim's Age"] +
-                "<br /><b>Victim's Gender:</b> " + d["Victim's Gender"] +
-                "<br /><b>Summary:</b> " + d['Summary'] +
-                '<br />-<i><a href="' + d['Source Link'] + '" target="_blank">Source</a></i>'
+                "<p><b>Outcome:</b> Unknown</p>" +
+                "<p><b>Shots Fired:</b> " + d['Shots Fired'] + "</p>" +
+                "<p><b>Victim's Age:</b> " + d["Victim's Age"] + "</p>" +
+                "<p><b>Victim's Gender:</b> " + d["Victim's Gender"] + "</p>" +
+                "<p><b>Summary:</b> " + d['Summary'] + "</p>" +
+                '<p>-<i><a href="' + d['Source Link'] + '" target="_blank">Source</a></i>'
             );
             outcomeUnk.addLayer(unk);
         }
@@ -134,12 +131,12 @@ customBuild = function () {
                 color       : '#2ca44f',
                 opacity     : '1'
             }).setRadius(d['Shots Fired']/5).bindPopup(
-                "<b>Outcome:</b> Hit" +
-                "<br /><b>Shots Fired:</b> " + d['Shots Fired'] +
-                "<br /><b>Victim's Age:</b> " + d["Victim's Age"] +
-                "<br /><b>Victim's Gender:</b> " + d["Victim's Gender"] +
-                "<br /><b>Summary:</b> " + d['Summary'] +
-                '<br />-<i><a href="' + d['Source Link'] + '" target="_blank">Source</a></i>'
+                "<p><b>Outcome:</b> " + d['Hit or Killed?'] + "</p>" +
+                "<p><b>Shots Fired:</b> " + d['Shots Fired'] + "</p>" +
+                "<p><b>Victim's Age:</b> " + d["Victim's Age"] + "</p>" +
+                "<p><b>Victim's Gender:</b> " + d["Victim's Gender"] + "</p>" +
+                "<p><b>Summary:</b> " + d['Summary'] + "</p>" +
+                '<p>-<i><a href="' + d['Source Link'] + '" target="_blank">Source</a></i>'
             );
             shots.addLayer(shot);
         }
