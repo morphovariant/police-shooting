@@ -91,7 +91,9 @@ customBuild = function () {
                 "<p><b>Victim's Age:</b> " + d["Victim's Age"] + "</p>" +
                 "<p><b>Victim's Gender:</b> " + d["Victim's Gender"] + "</p>" +
                 "<p><b>Summary:</b> " + d['Summary'] + "</p>" +
-                '<p>-<i><a href="' + d['Source Link'] + '" target="_blank">Source</a></i>'
+                '<p>-<i><a href="' + d['Source Link'] + '" target="_blank">Source</a></i>', {
+                    maxheight: '200px'
+                }
             );
             outcomeHit.addLayer(hit);
         } else if (d['Hit or Killed?'] == 'Killed') {
@@ -105,7 +107,9 @@ customBuild = function () {
                 "<p><b>Victim's Age:</b> " + d["Victim's Age"] + "</p>" +
                 "<p><b>Victim's Gender:</b> " + d["Victim's Gender"] + "</p>" +
                 "<p><b>Summary:</b> " + d['Summary'] + "</p>" +
-                '<p>-<i><a href="' + d['Source Link'] + '" target="_blank">Source</a></i>'
+                '<p>-<i><a href="' + d['Source Link'] + '" target="_blank">Source</a></i>', {
+                    maxheight: '200px'
+                }
             );
             outcomeKill.addLayer(kill);
         } else {
@@ -119,7 +123,9 @@ customBuild = function () {
                 "<p><b>Victim's Age:</b> " + d["Victim's Age"] + "</p>" +
                 "<p><b>Victim's Gender:</b> " + d["Victim's Gender"] + "</p>" +
                 "<p><b>Summary:</b> " + d['Summary'] + "</p>" +
-                '<p>-<i><a href="' + d['Source Link'] + '" target="_blank">Source</a></i>'
+                '<p>-<i><a href="' + d['Source Link'] + '" target="_blank">Source</a></i>', {
+                    maxheight: '200px'
+                }
             );
             outcomeUnk.addLayer(unk);
         }
@@ -136,7 +142,9 @@ customBuild = function () {
                 "<p><b>Victim's Age:</b> " + d["Victim's Age"] + "</p>" +
                 "<p><b>Victim's Gender:</b> " + d["Victim's Gender"] + "</p>" +
                 "<p><b>Summary:</b> " + d['Summary'] + "</p>" +
-                '<p>-<i><a href="' + d['Source Link'] + '" target="_blank">Source</a></i>'
+                '<p>-<i><a href="' + d['Source Link'] + '" target="_blank">Source</a></i>', {
+                    maxheight: '200px'
+                }
             );
             shots.addLayer(shot);
         }
