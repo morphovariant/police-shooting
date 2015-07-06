@@ -97,8 +97,8 @@ customBuild = function () {
                 "<p><b>Victim's Gender:</b> " + d["Victim's Gender"] + "</p>" +
                 "<p><b>Summary:</b> " + d['Summary'] + "</p>" +
                 '<p>-<i><a href="' + d['Source Link'] + '" target="_blank">Source</a></i>'
-            );
-            outcomeHit.addLayer(hit, hitPopup);
+            ).addTo(map);
+            outcomeHit.addLayer(hit);
         } else if (d['Hit or Killed?'] == 'Killed') {
             var kill = new L.circleMarker([d.lat, d.lng], {
                 stroke      : false,
