@@ -88,7 +88,8 @@ customBuild = function () {
         var summary = d['Summary'];
 
         //ensure there is a name, else incorporate gender if available
-        if (name.length < 3) {
+
+        if (name === undefined || name.length < 3) {
             if (gender == 'Male') {
                 name = "Unknown Male";
             } else if (gender == 'Female') {
