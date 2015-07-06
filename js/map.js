@@ -73,24 +73,21 @@ customBuild = function () {
     data.map(function (d) {
         if (d["Hit or Killed?"] == 'Hit') {
             var hit = new L.circleMarker([d.lat, d.lng], {
-                size: '3px',
-                color: '#6c4838',
+                color: '#2c4ca4',
                 opacity: '0'
-            });
+            }).setRadius(3);
             outcome.addLayer(hit)
         } else if (d['Hit or Killed?'] == 'Killed') {
             var kill = new L.circleMarker([d.lat, d.lng], {
-                size: '3px',
                 color: '#c04234',
                 opacity: '0'
-            });
+            }).setRadius(3);
             outcome.addLayer(kill)
         } else {
             var unk = new L.circleMarker([d.lat, d.lng], {
-                size: '3px',
-                color: '#e3e79b',
+                color: '#b6bd33',
                 opacity: '0'
-            });
+            }).setRadius(3);
             outcome.addLayer(unk)
         }
     });
