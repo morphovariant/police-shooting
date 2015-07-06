@@ -26,7 +26,7 @@ var drawMap = function() {
     outcomeKill = L.layerGroup();
     outcomeHit = L.layerGroup();
     outcomeUnk = L.layerGroup();
-    shots = L.layerGroup;
+    shots = L.layerGroup();
 
     map = L.map('container', {
         center  : [38, -96],
