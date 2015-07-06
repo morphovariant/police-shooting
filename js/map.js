@@ -92,7 +92,7 @@ customBuild = function () {
                 "<p><b>Victim's Gender:</b> " + d["Victim's Gender"] + "</p>" +
                 "<p><b>Summary:</b> " + d['Summary'] + "</p>" +
                 '<p>-<i><a href="' + d['Source Link'] + '" target="_blank">Source</a></i>', {
-                    maxheight: '200px'
+                    maxheight: '200'
                 }
             );
             outcomeHit.addLayer(hit);
@@ -108,7 +108,7 @@ customBuild = function () {
                 "<p><b>Victim's Gender:</b> " + d["Victim's Gender"] + "</p>" +
                 "<p><b>Summary:</b> " + d['Summary'] + "</p>" +
                 '<p>-<i><a href="' + d['Source Link'] + '" target="_blank">Source</a></i>', {
-                    maxheight: '200px'
+                    maxheight: '200'
                 }
             );
             outcomeKill.addLayer(kill);
@@ -124,7 +124,7 @@ customBuild = function () {
                 "<p><b>Victim's Gender:</b> " + d["Victim's Gender"] + "</p>" +
                 "<p><b>Summary:</b> " + d['Summary'] + "</p>" +
                 '<p>-<i><a href="' + d['Source Link'] + '" target="_blank">Source</a></i>', {
-                    maxheight: '200px'
+                    maxheight: '200'
                 }
             );
             outcomeUnk.addLayer(unk);
@@ -134,7 +134,7 @@ customBuild = function () {
                 stroke      : true,
                 weight      : '2',
                 fill        : false,
-                color       : '#2ca44f',
+                color       : '#6c4838',
                 opacity     : '1'
             }).setRadius(d['Shots Fired']/5).bindPopup(
                 "<p><b>Outcome:</b> " + d['Hit or Killed?'] + "</p>" +
@@ -143,7 +143,7 @@ customBuild = function () {
                 "<p><b>Victim's Gender:</b> " + d["Victim's Gender"] + "</p>" +
                 "<p><b>Summary:</b> " + d['Summary'] + "</p>" +
                 '<p>-<i><a href="' + d['Source Link'] + '" target="_blank">Source</a></i>', {
-                    maxheight: '200px'
+                    maxheight: '200'
                 }
             );
             shots.addLayer(shot);
