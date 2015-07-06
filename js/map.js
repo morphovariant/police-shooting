@@ -103,14 +103,34 @@ customBuild = function () {
                 stroke      : false,
                 color       : '#c04234',
                 opacity     : '0.5'
-            }).setRadius(3);
+            }).setRadius(3).bindPopup(
+                "<b>Outcome:</b> Hit" +
+                "<br /><b>Shots Fired:</b> " + d['Shots Fired'] +
+                "<br /><b>Victim's Age:</b> " + d["Victim's Age"] +
+                "<br /><b>Victim's Gender:</b> " + d["Victim's Gender"] +
+                "<br /><b>Summary:</b> " + d['Summary'] +
+                '<br />-<i><a href="' + d['Source Link'] + '" target="_blank">Source</a></i>', {
+                    'keepInView'    : true,
+                    'closeButton'   : true
+                }
+            );;
             outcomeKill.addLayer(kill);
         } else {
             var unk = new L.circleMarker([d.lat, d.lng], {
                 stroke        : false,
-                color         : '#b6bd33',
+                color         : '#75af2f',
                 opacity     : '0.5'
-            }).setRadius(3);
+            }).setRadius(3).bindPopup(
+                "<b>Outcome:</b> Hit" +
+                "<br /><b>Shots Fired:</b> " + d['Shots Fired'] +
+                "<br /><b>Victim's Age:</b> " + d["Victim's Age"] +
+                "<br /><b>Victim's Gender:</b> " + d["Victim's Gender"] +
+                "<br /><b>Summary:</b> " + d['Summary'] +
+                '<br />-<i><a href="' + d['Source Link'] + '" target="_blank">Source</a></i>', {
+                    'keepInView'    : true,
+                    'closeButton'   : true
+                }
+            );;
             outcomeUnk.addLayer(unk);
 
         }
