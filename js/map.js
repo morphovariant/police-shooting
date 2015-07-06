@@ -28,8 +28,8 @@ var drawMap = function() {
     shotsFired = L.layerGroup();
 
     map = L.map('container', {
-        center  : [38, -96],
-        zoom    : 4,
+        center  : [39, -105],
+        zoom    : 3,
         layers  : [baseLayer, outcomeHit, outcomeKill, outcomeUnk]
     });
 
