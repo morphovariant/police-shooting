@@ -31,7 +31,7 @@ var drawMap = function() {
     map = L.map('container', {
         center  : [38, -96],
         zoom    : 4,
-        layers  : [baseLayer, outcomeHit, outcomeKill, outcomeUnk, shots]
+        layers  : [baseLayer, outcomeHit, outcomeKill, outcomeUnk]
     });
 
     var baseMaps = {
@@ -146,7 +146,9 @@ customBuild = function () {
                 '<br />-<i><a href="' + d['Source Link'] + '" target="_blank">Source</a></i>', {
                     'keepInView'    : true,
                     'closeButton'   : true
-            });
+                }
+            );
+            shots.addLayer(shot);
         }
     });
 
