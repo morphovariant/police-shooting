@@ -21,11 +21,24 @@ var drawMap = function() {
     // mapbox Light base tile layer
     baseLayer = L.tileLayer('http://{s}.tiles.mapbox.com/v4/morphovariant.mkh9fi7o/{z}/{x}/{y}.png?access_token=pk.eyJ1IjoibW9ycGhvdmFyaWFudCIsImEiOiIzNTZhYTIxZjE3YzJiYjQ5Y2Y0Mzc1ZjJlZTliMmY0NyJ9.gg22GoEx5mShVKjZR37RbA');
 
+    outcome = L.layerGroup();
+
     map = L.map('container', {
         center  : [38, -96],
         zoom    : 4,
         layers  : [baseLayer]
     });
+
+    var baseMaps = {
+        "Base" : baseLayer
+    };
+
+    var overlayMaps = {
+        "Outcome"   : outcome
+        //"Shots"     : shots
+    };
+
+    L.control.layers(baseMaps, overlayMaps).addTo(map);
 
     getData();
  
@@ -63,32 +76,20 @@ customBuild = function () {
                 size: '3px',
                 color: '#6c4838',
                 opacity: '0'
-            }).addTo(map)
+            }).addLayer(outcome)
         } else if (d['Hit or Killed?'] == 'Killed') {
             var kill = new L.circleMarker([d.lat, d.lng], {
                 size: '3px',
                 color: '#c04234',
                 opacity: '0'
-            }).addTo(map)
+            }).addLayer(outcome)
         } else {
             var unk = new L.circleMarker([d.lat, d.lng], {
                 size: '3px',
                 color: '#e3e79b',
                 opacity: '0'
-            }).addTo(map)
+            }).addLayer(outcome)
         }
-        outcome = L.layerGroup([hit, kill, unk]);
-
-        var baseMaps = {
-            "Base" : baseLayer
-        };
-
-        var overlayMaps = {
-            "Outcome"   : outcome
-            //"Shots"     : shots
-        };
-
-        L.control.layers(baseMaps, overlayMaps).addTo(map);
     });
 
 };
