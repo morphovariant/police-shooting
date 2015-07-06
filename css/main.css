@@ -3,10 +3,16 @@
 
 body {
     padding: 30px;
+    height: 100%;
 }
 
 .clean {
     padding-left: 0;
+}
+
+#container {
+    height: auto;
+    width: auto;
 }
 
 header {

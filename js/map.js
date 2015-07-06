@@ -50,7 +50,11 @@ var drawMap = function() {
         'collapsed' : false
     }).addTo(map);
 
-    getData();
+    L.control.zoom({
+        'position'  : 'bottomright'
+    });
+
+        getData();
  
     };
 
