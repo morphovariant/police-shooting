@@ -39,9 +39,9 @@ var drawMap = function() {
     };
 
     var overlayMaps = {
-        '<span class="hit">Outcome: Hit</span>'      : outcomeHit,
-        '<span class="kill">Outcome: Killed</span>'   : outcomeKill,
-        '<span class="unk">Outcome: Unknown</span>'  : outcomeUnk,
+        'Outcome: Hit'      : outcomeHit,
+        'Outcome: Killed'   : outcomeKill,
+        'Outcome: Unknown'  : outcomeUnk,
         'Shots Fired: > 25'  : shots
     };
 
@@ -108,10 +108,7 @@ customBuild = function () {
                 "<br /><b>Victim's Age:</b> " + d["Victim's Age"] +
                 "<br /><b>Victim's Gender:</b> " + d["Victim's Gender"] +
                 "<br /><b>Summary:</b> " + d['Summary'] +
-                '<br />-<i><a href="' + d['Source Link'] + '" target="_blank">Source</a></i>', {
-                    'keepInView'    : true,
-                    'closeButton'   : true
-                }
+                '<br />-<i><a href="' + d['Source Link'] + '" target="_blank">Source</a></i>'
             );
             outcomeKill.addLayer(kill);
         } else {
@@ -125,18 +122,16 @@ customBuild = function () {
                 "<br /><b>Victim's Age:</b> " + d["Victim's Age"] +
                 "<br /><b>Victim's Gender:</b> " + d["Victim's Gender"] +
                 "<br /><b>Summary:</b> " + d['Summary'] +
-                '<br />-<i><a href="' + d['Source Link'] + '" target="_blank">Source</a></i>', {
-                    'keepInView'    : true,
-                    'closeButton'   : true
-                }
+                '<br />-<i><a href="' + d['Source Link'] + '" target="_blank">Source</a></i>'
             );
             outcomeUnk.addLayer(unk);
         }
         if (d['Shots Fired'] >= 25) {
             var shot = new L.circleMarker([d.lat, d.lng], {
                 stroke      : true,
+                weight      : '2',
                 fill        : false,
-                color       : '#75af2f',
+                color       : '#607049',
                 opacity     : '1'
             }).setRadius(d['Shots Fired']/5).bindPopup(
                 "<b>Outcome:</b> Hit" +
@@ -144,10 +139,7 @@ customBuild = function () {
                 "<br /><b>Victim's Age:</b> " + d["Victim's Age"] +
                 "<br /><b>Victim's Gender:</b> " + d["Victim's Gender"] +
                 "<br /><b>Summary:</b> " + d['Summary'] +
-                '<br />-<i><a href="' + d['Source Link'] + '" target="_blank">Source</a></i>', {
-                    'keepInView'    : true,
-                    'closeButton'   : true
-                }
+                '<br />-<i><a href="' + d['Source Link'] + '" target="_blank">Source</a></i>'
             );
             shots.addLayer(shot);
         }
