@@ -25,12 +25,16 @@ var drawMap = function() {
         zoom: 4
     });
 
-    var overlays = {
+    var baseMaps = {
+        "Base" : baseLayer
+    };
+
+    var overlayMaps = {
         "Outcome"   : outcome
         //"Shots"     : shots
     };
 
-    L.control.layers(baseLayer, overlays).addTo(map);
+    L.control.layers(baseMaps, overlayMaps).addTo(map);
 
     getData();
  
