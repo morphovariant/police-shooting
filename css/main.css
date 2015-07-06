@@ -60,10 +60,6 @@ p {
     color: #c04234;
 }
 
-.leaflet-popup-content-wrapper {
-    max-height: 200px;
-}
-
 a:link, a:visited, a:active {
     color: #607049;
     text-decoration: none;

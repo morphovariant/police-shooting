@@ -85,17 +85,20 @@ customBuild = function () {
                 stroke      : false,
                 color       : '#2c4ca4',
                 opacity     : '0.5'
-            }).setRadius(5).bindPopup(
+            }).setRadius(5);
+            var hitPopup = new L.popup({
+                maxHeight : '200'
+            }).setLatLng(
+                [d.lat, d.lng]
+            ).setContent(
                 "<p><b>Outcome:</b> Hit</p>" +
                 "<p><b>Shots Fired:</b> " + d['Shots Fired'] + "</p>" +
                 "<p><b>Victim's Age:</b> " + d["Victim's Age"] + "</p>" +
                 "<p><b>Victim's Gender:</b> " + d["Victim's Gender"] + "</p>" +
                 "<p><b>Summary:</b> " + d['Summary'] + "</p>" +
-                '<p>-<i><a href="' + d['Source Link'] + '" target="_blank">Source</a></i>', {
-                    maxheight: '200'
-                }
+                '<p>-<i><a href="' + d['Source Link'] + '" target="_blank">Source</a></i>'
             );
-            outcomeHit.addLayer(hit);
+            outcomeHit.addLayer(hit, hitPopup);
         } else if (d['Hit or Killed?'] == 'Killed') {
             var kill = new L.circleMarker([d.lat, d.lng], {
                 stroke      : false,
