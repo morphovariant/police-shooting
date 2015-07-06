@@ -24,19 +24,8 @@ var drawMap = function() {
     map = L.map('container', {
         center  : [38, -96],
         zoom    : 4,
-        layers  : [baseLayer, outcome]
+        layers  : [baseLayer]
     });
-
-    var baseMaps = {
-        "Base" : baseLayer
-    };
-
-    var overlayMaps = {
-        "Outcome"   : outcome
-        //"Shots"     : shots
-    };
-
-    L.control.layers(baseMaps, overlayMaps).addTo(map);
 
     getData();
  
@@ -89,6 +78,17 @@ customBuild = function () {
             }).addTo(map)
         }
         outcome = L.layerGroup([hit, kill, unk]);
+
+        var baseMaps = {
+            "Base" : baseLayer
+        };
+
+        var overlayMaps = {
+            "Outcome"   : outcome
+            //"Shots"     : shots
+        };
+
+        L.control.layers(baseMaps, overlayMaps).addTo(map);
     });
 
 };
