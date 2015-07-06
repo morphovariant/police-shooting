@@ -35,11 +35,6 @@ var drawMap = function() {
         layers  : [baseLayer, outcomeHit, outcomeKill, outcomeUnk]
     });
 
-    $(window).on("resize", function() {
-        $("#container").height($(window).height()).width($(window).width());
-        map.invalidateSize();
-    }).trigger("resize");
-
     var baseMaps = {
         "Base" : baseLayer
     };

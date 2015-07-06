@@ -10,11 +10,6 @@ body {
     padding-left: 0;
 }
 
-#container {
-    height: 100%; !important
-    width: auto;
-}
-
 header {
     display: block;
     margin-left: 0;
