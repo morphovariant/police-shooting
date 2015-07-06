@@ -3,11 +3,10 @@
 
 var map;
 var baseLayer;
-//var outcomeAll;
 var outcomeKill;
 var outcomeHit;
 var outcomeUnk;
-//var shots;
+var shots;
 var data;
 var getData;
 var customBuild;
@@ -24,15 +23,15 @@ var drawMap = function() {
     // mapbox Light base tile layer
     baseLayer = L.tileLayer('http://{s}.tiles.mapbox.com/v4/morphovariant.mkh9fi7o/{z}/{x}/{y}.png?access_token=pk.eyJ1IjoibW9ycGhvdmFyaWFudCIsImEiOiIzNTZhYTIxZjE3YzJiYjQ5Y2Y0Mzc1ZjJlZTliMmY0NyJ9.gg22GoEx5mShVKjZR37RbA');
 
-    //outcomeAll = L.layerGroup();
     outcomeKill = L.layerGroup();
     outcomeHit = L.layerGroup();
     outcomeUnk = L.layerGroup();
+    shots = L.layerGroup;
 
     map = L.map('container', {
         center  : [38, -96],
         zoom    : 4,
-        layers  : [baseLayer, outcomeHit, outcomeKill, outcomeUnk]
+        layers  : [baseLayer, outcomeHit, outcomeKill, outcomeUnk, shots]
     });
 
     var baseMaps = {
@@ -42,8 +41,8 @@ var drawMap = function() {
     var overlayMaps = {
         '<span class="hit">Outcome: Hit</span>'      : outcomeHit,
         '<span class="kill">Outcome: Killed</span>'   : outcomeKill,
-        '<span class="unk">Outcome: Unknown</span>'  : outcomeUnk
-        //"Shots"     : shots
+        '<span class="unk">Outcome: Unknown</span>'  : outcomeUnk,
+        'Shots Fired: > 100'  : shots
     };
 
     L.control.layers(baseMaps, overlayMaps, {
@@ -86,7 +85,7 @@ customBuild = function () {
                 stroke      : false,
                 color       : '#2c4ca4',
                 opacity     : '0.5'
-            }).setRadius(3).bindPopup(
+            }).setRadius(5).bindPopup(
                 "<b>Outcome:</b> Hit" +
                 "<br /><b>Shots Fired:</b> " + d['Shots Fired'] +
                 "<br /><b>Victim's Age:</b> " + d["Victim's Age"] +
@@ -103,7 +102,7 @@ customBuild = function () {
                 stroke      : false,
                 color       : '#c04234',
                 opacity     : '0.5'
-            }).setRadius(3).bindPopup(
+            }).setRadius(5).bindPopup(
                 "<b>Outcome:</b> Killed" +
                 "<br /><b>Shots Fired:</b> " + d['Shots Fired'] +
                 "<br /><b>Victim's Age:</b> " + d["Victim's Age"] +
@@ -113,14 +112,14 @@ customBuild = function () {
                     'keepInView'    : true,
                     'closeButton'   : true
                 }
-            );;
+            );
             outcomeKill.addLayer(kill);
         } else {
             var unk = new L.circleMarker([d.lat, d.lng], {
                 stroke        : false,
                 color         : '#952ca4',
                 opacity     : '0.5'
-            }).setRadius(3).bindPopup(
+            }).setRadius(5).bindPopup(
                 "<b>Outcome:</b> Unknown" +
                 "<br /><b>Shots Fired:</b> " + d['Shots Fired'] +
                 "<br /><b>Victim's Age:</b> " + d["Victim's Age"] +
@@ -130,9 +129,24 @@ customBuild = function () {
                     'keepInView'    : true,
                     'closeButton'   : true
                 }
-            );;
+            );
             outcomeUnk.addLayer(unk);
-
+        }
+        if (d['Shots Fired'] >= 100) {
+            var shot = new L.circleMarker([d.lat, d.lng], {
+                stroke      : true,
+                color       : '#75af2f',
+                opacity     : '1'
+            }).setRadius(d['Shots Fired']/3).bindPopup(
+                "<b>Outcome:</b> Hit" +
+                "<br /><b>Shots Fired:</b> " + d['Shots Fired'] +
+                "<br /><b>Victim's Age:</b> " + d["Victim's Age"] +
+                "<br /><b>Victim's Gender:</b> " + d["Victim's Gender"] +
+                "<br /><b>Summary:</b> " + d['Summary'] +
+                '<br />-<i><a href="' + d['Source Link'] + '" target="_blank">Source</a></i>', {
+                    'keepInView'    : true,
+                    'closeButton'   : true
+            });
         }
     });
 
