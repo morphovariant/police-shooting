@@ -41,7 +41,7 @@ var drawMap = function() {
         'Outcome: <span class="blue">Hit</span>'        : outcomeHit,
         'Outcome: <span class="red">Killed</span>'      : outcomeKill,
         'Outcome: <span class="purple">Unknown</span>'  : outcomeUnk,
-        'Shots Fired: > 25'  : shotsFired
+        'Shots Fired: > 25'                             : shotsFired
     };
 
     L.control.layers(baseMaps, overlayMaps, {

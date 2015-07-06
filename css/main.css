@@ -1,4 +1,4 @@
-@import url(http://fonts.googleapis.com/css?family=Raleway:200);
+@import url(http://fonts.googleapis.com/css?family=Raleway:400,200);
 @import url(http://fonts.googleapis.com/css?family=Roboto+Condensed:300,400);
 
 body {
@@ -27,8 +27,8 @@ h1 {
 
 h2 {
     font-family: Raleway, Helvetica, Sans-serif;
-    font-weight: 200;
-    font-size: 18px;
+    font-weight: 400;
+    font-size: 20px;
     color: #c04234;
     margin-top: 0;
     margin-bottom: 15px;
@@ -48,15 +48,15 @@ p {
     color: #6c4838;
 }
 
-.blue {
+.blue, .leaflet-control-layers-list span .blue {
     color: #2c4ca4;
 }
 
-.red {
+.red, .leaflet-control-layers-list span .red {
     color: #c04234;
 }
 
-.purple {
+.purple, .leaflet-control-layers-list span .purple {
     color: #952ca4;
 }
 
