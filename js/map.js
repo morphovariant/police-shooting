@@ -92,7 +92,10 @@ customBuild = function () {
                 "<br /><b>Victim's Age:</b> " + d["Victim's Age"] +
                 "<br /><b>Victim's Gender:</b> " + d["Victim's Gender"] +
                 "<br /><b>Summary:</b> " + d['Summary'] +
-                '<br />-<i><a href="' + d['Source Link'] + '" target="_blank">Source</a></i>'
+                '<br />-<i><a href="' + d['Source Link'] + '" target="_blank">Source</a></i>', {
+                    'keepInView'    : true,
+                    'closeButton'   : true
+                }
             );
             outcomeHit.addLayer(hit);
         } else if (d['Hit or Killed?'] == 'Killed') {
