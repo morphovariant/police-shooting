@@ -51,7 +51,7 @@ var drawMap = function() {
     }).addTo(map);
 
     L.control.zoom({
-        'position'  : 'bottomright'
+        position  : 'bottomright'
     });
 
         getData();
