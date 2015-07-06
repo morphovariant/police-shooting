@@ -50,10 +50,6 @@ var drawMap = function() {
         'collapsed' : false
     }).addTo(map);
 
-    L.control.zoom({
-        position  : 'bottomright'
-    }).addTo(map);
-
         getData();
  
     };
@@ -87,9 +83,9 @@ customBuild = function () {
     data.map(function (d) {
         if (d["Hit or Killed?"] == 'Hit') {
             var hit = new L.circleMarker([d.lat, d.lng], {
-                'stroke'        : false,
-                'fillcolor'     : '#2c4ca4',
-                'fillopacity'   : '0.5'
+                stroke      : false,
+                color       : '#2c4ca4',
+                opacity     : '0.5'
             }).setRadius(3).bindPopup(
                 "<b>Outcome:</b> Hit" +
                 "<br /><b>Shots Fired:</b> " + d['Shots Fired'] +
@@ -104,16 +100,16 @@ customBuild = function () {
             outcomeHit.addLayer(hit);
         } else if (d['Hit or Killed?'] == 'Killed') {
             var kill = new L.circleMarker([d.lat, d.lng], {
-                'stroke'        : false,
-                'fillcolor'     : '#c04234',
-                'fillopacity'   : '0.5'
+                stroke      : false,
+                color       : '#c04234',
+                opacity     : '0.5'
             }).setRadius(3);
             outcomeKill.addLayer(kill);
         } else {
             var unk = new L.circleMarker([d.lat, d.lng], {
-                'stroke'        : false,
-                'color'         : '#b6bd33',
-                'fillopacity'   : '0.5'
+                stroke        : false,
+                color         : '#b6bd33',
+                opacity     : '0.5'
             }).setRadius(3);
             outcomeUnk.addLayer(unk);
 
