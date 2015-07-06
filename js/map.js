@@ -3,7 +3,10 @@
 
 var map;
 var baseLayer;
-var outcome;
+//var outcomeAll;
+var outcomeKill;
+var outcomeHit;
+var outcomeUnk;
 //var shots;
 var data;
 var getData;
@@ -21,12 +24,15 @@ var drawMap = function() {
     // mapbox Light base tile layer
     baseLayer = L.tileLayer('http://{s}.tiles.mapbox.com/v4/morphovariant.mkh9fi7o/{z}/{x}/{y}.png?access_token=pk.eyJ1IjoibW9ycGhvdmFyaWFudCIsImEiOiIzNTZhYTIxZjE3YzJiYjQ5Y2Y0Mzc1ZjJlZTliMmY0NyJ9.gg22GoEx5mShVKjZR37RbA');
 
-    outcome = L.layerGroup();
+    //outcomeAll = L.layerGroup();
+    outcomeKill = L.layerGroup();
+    outcomeHit = L.layerGroup();
+    outcomeUnk = L.layerGroup();
 
     map = L.map('container', {
         center  : [38, -96],
         zoom    : 4,
-        layers  : [baseLayer]
+        layers  : [baseLayer, outcomeHit, outcomeKill, outcomeUnk]
     });
 
     var baseMaps = {
@@ -34,7 +40,9 @@ var drawMap = function() {
     };
 
     var overlayMaps = {
-        "Outcome"   : outcome
+        "Outcome: Hit"      : outcomeHit,
+        "Outcome: Killed"   : outcomeKill,
+        "Outcome: Unknown"  : outcomeUnk
         //"Shots"     : shots
     };
 
@@ -73,22 +81,24 @@ customBuild = function () {
     data.map(function (d) {
         if (d["Hit or Killed?"] == 'Hit') {
             var hit = new L.circleMarker([d.lat, d.lng], {
-                color: '#2c4ca4',
-                opacity: '0'
+                fillcolor: '#2c4ca4',
+                fillopacity: '0.5'
             }).setRadius(3);
-            outcome.addLayer(hit)
+            outcomeHit.addLayer(hit);
         } else if (d['Hit or Killed?'] == 'Killed') {
             var kill = new L.circleMarker([d.lat, d.lng], {
-                color: '#c04234',
-                opacity: '0'
+                fillcolor: '#c04234',
+                fillopacity: '0.5'
             }).setRadius(3);
-            outcome.addLayer(kill)
+            outcomeKill.addLayer(kill);
+
         } else {
             var unk = new L.circleMarker([d.lat, d.lng], {
                 color: '#b6bd33',
-                opacity: '0'
+                fillopacity: '0.5'
             }).setRadius(3);
-            outcome.addLayer(unk)
+            outcomeUnk.addLayer(unk);
+
         }
     });
 
