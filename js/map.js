@@ -135,6 +135,7 @@ customBuild = function () {
         if (d['Shots Fired'] >= 100) {
             var shot = new L.circleMarker([d.lat, d.lng], {
                 stroke      : true,
+                fill        : false,
                 color       : '#75af2f',
                 opacity     : '1'
             }).setRadius(d['Shots Fired']/3).bindPopup(
