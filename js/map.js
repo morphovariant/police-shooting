@@ -42,7 +42,7 @@ var drawMap = function() {
         '<span class="hit">Outcome: Hit</span>'      : outcomeHit,
         '<span class="kill">Outcome: Killed</span>'   : outcomeKill,
         '<span class="unk">Outcome: Unknown</span>'  : outcomeUnk,
-        'Shots Fired: > 100'  : shots
+        'Shots Fired: > 25'  : shots
     };
 
     L.control.layers(baseMaps, overlayMaps, {
@@ -132,7 +132,7 @@ customBuild = function () {
             );
             outcomeUnk.addLayer(unk);
         }
-        if (d['Shots Fired'] >= 100) {
+        if (d['Shots Fired'] >= 25) {
             var shot = new L.circleMarker([d.lat, d.lng], {
                 stroke      : true,
                 fill        : false,
