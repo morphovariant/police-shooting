@@ -81,19 +81,21 @@ customBuild = function () {
     data.map(function (d) {
         if (d["Hit or Killed?"] == 'Hit') {
             var hit = new L.circleMarker([d.lat, d.lng], {
+                stroke: false,
                 fillcolor: '#2c4ca4',
                 fillopacity: '0.5'
             }).setRadius(3);
             outcomeHit.addLayer(hit);
         } else if (d['Hit or Killed?'] == 'Killed') {
             var kill = new L.circleMarker([d.lat, d.lng], {
+                stroke: false,
                 fillcolor: '#c04234',
                 fillopacity: '0.5'
             }).setRadius(3);
             outcomeKill.addLayer(kill);
-
         } else {
             var unk = new L.circleMarker([d.lat, d.lng], {
+                stroke: false,
                 color: '#b6bd33',
                 fillopacity: '0.5'
             }).setRadius(3);
