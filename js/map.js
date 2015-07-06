@@ -83,7 +83,7 @@ customBuild = function () {
         if (d["Hit or Killed?"] == 'Hit') {
             var hitPopup = new L.popup({
                 maxHeight : '200'
-            }, outcomeHit).setLatLng(
+            }).setLatLng(
                 [d.lat, d.lng]
             ).setContent(
                 "<p><b>Outcome:</b> Hit</p>" +
