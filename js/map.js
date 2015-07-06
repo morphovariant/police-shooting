@@ -131,7 +131,7 @@ customBuild = function () {
                 stroke      : true,
                 weight      : '2',
                 fill        : false,
-                color       : '#607049',
+                color       : '#b6bd33',
                 opacity     : '1'
             }).setRadius(d['Shots Fired']/5).bindPopup(
                 "<b>Outcome:</b> Hit" +
