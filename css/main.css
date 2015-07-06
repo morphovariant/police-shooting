@@ -34,7 +34,7 @@ h2 {
     margin-bottom: 15px;
 }
 
-p {
+p, .leaflet-popup-content, .leaflet-control-layers-list span {
     font-family: 'Roboto Condensed', Helvetica, Sans-serif;
     font-weight: 300;
     font-size: 16px;
