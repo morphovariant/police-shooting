@@ -118,7 +118,7 @@ customBuild = function () {
         } else {
             var unk = new L.circleMarker([d.lat, d.lng], {
                 stroke        : false,
-                color         : '#75af2f',
+                color         : '#952ca4',
                 opacity     : '0.5'
             }).setRadius(3).bindPopup(
                 "<b>Outcome:</b> Hit" +
