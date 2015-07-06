@@ -76,19 +76,22 @@ customBuild = function () {
                 size: '3px',
                 color: '#6c4838',
                 opacity: '0'
-            }).addLayer(outcome)
+            });
+            outcome.addLayer(hit)
         } else if (d['Hit or Killed?'] == 'Killed') {
             var kill = new L.circleMarker([d.lat, d.lng], {
                 size: '3px',
                 color: '#c04234',
                 opacity: '0'
-            }).addLayer(outcome)
+            });
+            outcome.addLayer(kill)
         } else {
             var unk = new L.circleMarker([d.lat, d.lng], {
                 size: '3px',
                 color: '#e3e79b',
                 opacity: '0'
-            }).addLayer(outcome)
+            });
+            outcome.addLayer(unk)
         }
     });
 
