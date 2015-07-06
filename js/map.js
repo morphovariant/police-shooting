@@ -81,14 +81,9 @@ customBuild = function () {
     //color code circleMarkers on 'Hit or Killed'
     data.map(function (d) {
         if (d["Hit or Killed?"] == 'Hit') {
-            var hit = new L.circleMarker([d.lat, d.lng], {
-                stroke      : false,
-                color       : '#2c4ca4',
-                opacity     : '0.5'
-            }).setRadius(5);
             var hitPopup = new L.popup({
                 maxHeight : '200'
-            }).setLatLng(
+            }, outcomeHit).setLatLng(
                 [d.lat, d.lng]
             ).setContent(
                 "<p><b>Outcome:</b> Hit</p>" +
@@ -97,8 +92,13 @@ customBuild = function () {
                 "<p><b>Victim's Gender:</b> " + d["Victim's Gender"] + "</p>" +
                 "<p><b>Summary:</b> " + d['Summary'] + "</p>" +
                 '<p>-<i><a href="' + d['Source Link'] + '" target="_blank">Source</a></i>'
-            ).openOn(map);
-            outcomeHit.addLayer(hit, hitPopup);
+            );
+            var hit = new L.circleMarker([d.lat, d.lng], {
+                stroke      : false,
+                color       : '#2c4ca4',
+                opacity     : '0.5'
+            }).setRadius(5).bindPopup(hitPopup);
+            outcomeHit.addLayer(hit);
         } else if (d['Hit or Killed?'] == 'Killed') {
             var kill = new L.circleMarker([d.lat, d.lng], {
                 stroke      : false,
