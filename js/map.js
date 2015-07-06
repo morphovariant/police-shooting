@@ -40,9 +40,9 @@ var drawMap = function() {
     };
 
     var overlayMaps = {
-        "Outcome: Hit"      : outcomeHit,
-        "Outcome: Killed"   : outcomeKill,
-        "Outcome: Unknown"  : outcomeUnk
+        '<span class="hit">Outcome: Hit</span>'      : outcomeHit,
+        '<span class="kill">Outcome: Killed</span>'   : outcomeKill,
+        '<span class="unk">Outcome: Unknown</span>'  : outcomeUnk
         //"Shots"     : shots
     };
 
@@ -104,7 +104,7 @@ customBuild = function () {
                 color       : '#c04234',
                 opacity     : '0.5'
             }).setRadius(3).bindPopup(
-                "<b>Outcome:</b> Hit" +
+                "<b>Outcome:</b> Killed" +
                 "<br /><b>Shots Fired:</b> " + d['Shots Fired'] +
                 "<br /><b>Victim's Age:</b> " + d["Victim's Age"] +
                 "<br /><b>Victim's Gender:</b> " + d["Victim's Gender"] +
@@ -121,7 +121,7 @@ customBuild = function () {
                 color         : '#952ca4',
                 opacity     : '0.5'
             }).setRadius(3).bindPopup(
-                "<b>Outcome:</b> Hit" +
+                "<b>Outcome:</b> Unknown" +
                 "<br /><b>Shots Fired:</b> " + d['Shots Fired'] +
                 "<br /><b>Victim's Age:</b> " + d["Victim's Age"] +
                 "<br /><b>Victim's Gender:</b> " + d["Victim's Gender"] +

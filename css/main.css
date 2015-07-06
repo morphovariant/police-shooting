@@ -41,6 +41,18 @@ p {
     color: #6c4838
 }
 
+.hit {
+    color: #2c4ca4;
+}
+
+.kill {
+    color: #c04234;
+}
+
+.unk {
+    color: #952ca4;
+}
+
 a:link, a:visited, a:active {
     color: #607049;
     text-decoration: none;
