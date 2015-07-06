@@ -46,7 +46,9 @@ var drawMap = function() {
         //"Shots"     : shots
     };
 
-    L.control.layers(baseMaps, overlayMaps).addTo(map);
+    L.control.layers(baseMaps, overlayMaps, {
+        'collapsed' : false
+    }).addTo(map);
 
     getData();
  
@@ -84,7 +86,14 @@ customBuild = function () {
                 stroke: false,
                 fillcolor: '#2c4ca4',
                 fillopacity: '0.5'
-            }).setRadius(3);
+            }).setRadius(3).bindPopup(
+                "<b>Outcome:</b> Hit" +
+                "<br /><b>Shots Fired:</b> " + d['Shots Fired'] +
+                "<br /><b>Victim's Age:</b> " + d["Victim's Age"] +
+                "<br /><b>Victim's Gender:</b> " + d["Victim's Gender"] +
+                "<br /><b>Summary:</b> " + d['Summary'] +
+                '<br />-<i><a href="' + d['Source Link'] + '" target="_blank">Source</a></i>'
+            );
             outcomeHit.addLayer(hit);
         } else if (d['Hit or Killed?'] == 'Killed') {
             var kill = new L.circleMarker([d.lat, d.lng], {
