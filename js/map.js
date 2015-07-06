@@ -38,9 +38,9 @@ var drawMap = function() {
     };
 
     var overlayMaps = {
-        'Outcome: Hit'      : outcomeHit,
-        'Outcome: Killed'   : outcomeKill,
-        'Outcome: Unknown'  : outcomeUnk,
+        'Outcome: <span class="blue">Hit</span>'        : outcomeHit,
+        'Outcome: <span class="red">Killed</span>'      : outcomeKill,
+        'Outcome: <span class="purple">Unknown</span>'  : outcomeUnk,
         'Shots Fired: > 25'  : shotsFired
     };
 
@@ -102,6 +102,8 @@ customBuild = function () {
         //pre-format age for content when present
         if (age > 0) {
             age = ', ' + age;
+        } else {
+            age = '';
         }
 
         //pre-format link for content
@@ -165,7 +167,7 @@ customBuild = function () {
 
             var shot = new L.circleMarker([d.lat, d.lng], {
                 stroke      : true,
-                weight      : '2',
+                weight      : '1',
                 fill        : false,
                 color       : '#6c4838',
                 opacity     : '1'
