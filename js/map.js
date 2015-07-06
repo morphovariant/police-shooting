@@ -163,7 +163,13 @@ customBuild = function () {
 
         //additional optional layer indicating high number of shots fired
         //marker is an empty circle, radius is based on number of shots fired / 5
+        //although the popups will be duplicates, if a user unchecks all outcomes
+        //popup info will still be available for high shots fired incidents.
         if (shots >= 25) {
+
+            var shotPopup = new L.popup({
+                maxHeight   : '200'
+            }).setLatLng([d.lat, d.lng]).setContent(content);
 
             var shot = new L.circleMarker([d.lat, d.lng], {
                 stroke      : true,
@@ -171,7 +177,7 @@ customBuild = function () {
                 fill        : false,
                 color       : '#6c4838',
                 opacity     : '1'
-            }).setRadius(shots/5);
+            }).setRadius(shots/5).bindPopup(shotPopup);
 
             shotsFired.addLayer(shot);
         }
