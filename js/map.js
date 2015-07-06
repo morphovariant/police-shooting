@@ -138,7 +138,7 @@ customBuild = function () {
                 fill        : false,
                 color       : '#75af2f',
                 opacity     : '1'
-            }).setRadius(d['Shots Fired']/3).bindPopup(
+            }).setRadius(d['Shots Fired']/5).bindPopup(
                 "<b>Outcome:</b> Hit" +
                 "<br /><b>Shots Fired:</b> " + d['Shots Fired'] +
                 "<br /><b>Victim's Age:</b> " + d["Victim's Age"] +
